@@ -1,0 +1,12 @@
+apiVersion: v1
+entries:
+  checkmk:
+  - apiVersion: v2
+    created: "2024-01-02T21:05:04.113960007Z"
+    description: JVX CheckMk Helm Charts
+    digest: 992028ca43a7f7409360f878e3229c98e33cde857ea01a71cf74a2749ea4e9b9
+    name: checkmk
+    urls:
+    - https://github.com/jvxtechnology/helm-charts/releases/download/checkmk-0.1.9/checkmk-0.1.9.tgz
+    version: 0.1.9
+generated: "2024-01-02T21:05:04.113966529Z"
