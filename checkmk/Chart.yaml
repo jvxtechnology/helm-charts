@@ -1,4 +1,0 @@
-apiVersion: v2
-name: checkmk
-description: JVX CheckMk Helm Charts
-version: 0.1.0
