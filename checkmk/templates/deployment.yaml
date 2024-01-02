@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "check-mk.fullname" . }}
+  labels:
+    app: {{ template "check-mk.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "check-mk.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "check-mk.name" . }}
+    spec:
+      containers:
+      - name: promonitor
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        securityContext:
+          capabilities:
+            add:
+              - SYS_ADMIN
+        ports:
+          - containerPort: 5000
+            name: http
+          - containerPort: 8000
+            name: custom
+        volumeMounts:
+          - name: sites
+            mountPath: /omd/sites
+          - name: agent-local
+            mountPath: "{{ .Values.persistence.agentLocal.mountPath }}"
+          - name: notifications
+            mountPath: "{{ .Values.persistence.notifications.mountPath }}"
+          - name: notifications-ext
+            mountPath: "{{ .Values.persistence.notificationsExt.mountPath }}"
+      volumes:
+        - name: sites
+          persistentVolumeClaim:
+            claimName: sites-pvc
+        - name: agent-local
+          persistentVolumeClaim:
+            claimName: agent-local-pvc
+        - name: notifications
+          persistentVolumeClaim:
+            claimName: notifications-pvc
+        - name: notifications-ext
+          persistentVolumeClaim:
+            claimName: notifications-ext-pvc
+
