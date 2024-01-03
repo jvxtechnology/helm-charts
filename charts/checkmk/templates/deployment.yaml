@@ -20,19 +20,36 @@ spec:
       containers:
       - name: promonitor
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        env:
+          - name: TZ
+            value: "{{ .Values.timezone }}"
+          - name: CMK_SITE_ID
+            value: "{{ .Values.siteName }}"
+          - name: CMK_LIVESTATUS_TCP
+            value: "on"
         securityContext:
+          allowPrivilegeEscalation: true
           capabilities:
             add:
               - SYS_ADMIN
         ports:
-          - containerPort: 5000
-            name: http
-          - containerPort: 8000
-            name: custom
+        {{- range $name, $svc := .Values.service }}
+        {{ if $svc.enabled }}
+        - containerPort: {{ $svc.internalPort }}
+          name: {{ $name }}
+          protocol: TCP
+        {{- end }}
+        {{- end }}
         volumeMounts:
           - name: sites
             mountPath: /omd/sites
+          - name: temp-storage
+            mountPath: /opt/omd/sites/cmk/tmp
       volumes:
         - name: sites
           persistentVolumeClaim:
             claimName: sites-pvc
+        - name: temp-storage
+          emptyDir:
+            medium: Memory
+            sizeLimit: {{ .Values.tmpfs.size }}

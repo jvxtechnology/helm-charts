@@ -1,21 +1,33 @@
+siteName: jvx-site
+mailRelayHost: ""
+timezone: America/Chicago
 image:
   repository: checkmk/check-mk-raw
   tag: >-
     v2.3.0-2023.12.14@sha256:3770b2a8ee3ed7a9edd7f239782cbc754708f43dcb58cba423f9afdb5550286a
   pullPolicy: IfNotPresent
 service:
-  name: check-mk
-  type: NodePort
-  externalPort: 80
-  internalPort: 5000
+  check-mk:
+    type: NodePort
+    enabled: true
+    externalPort: 8080
+    internalPort: 5000
+  agent-receiver:
+    type: NodePort
+    enabled: true
+    externalPort: 8000
+    internalPort: 8000
+  livestatus:
+    type: NodePort
+    enabled: true
+    externalPort: 6557
+    internalPort: 6557
 ingress:
   # Used to create Ingress record
   hosts:
     - rc01.jvx.jvxtechnology.com
     - monitor.jvxcustomer.com
   enabled: false
-  providerTlsHostname: rc01.jvx.jvxtechnology.com
-  customerTlsHostname: monitor.jvxcustomer.com
   annotations:
     spec.ingressClassName: nginx
   tls:
@@ -35,11 +47,5 @@ persistence:
   accessMode: ReadWriteOnce
   size: 100Gi
 tmpfs:
-  mountPath: /opt/omd/sites/cmk/tmp
   size: 500Mi
-  uid: 1000
-  gid: 1000
-
-timezone:
-  mountPath: /etc/localtime
 
