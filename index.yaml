@@ -2,6 +2,14 @@ apiVersion: v1
 entries:
   promonitor:
   - apiVersion: v2
+    created: "2024-01-03T19:27:41.907059518Z"
+    description: JVX ProMonitor Helm Chart
+    digest: 88a62207ff511710c12043dfcb5be7cda3b822947816a761525451ed963acd2a
+    name: promonitor
+    urls:
+    - https://github.com/jvxtechnology/helm-charts/releases/download/promonitor-1.0.2/promonitor-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2024-01-03T19:00:34.901884758Z"
     description: JVX ProMonitor Helm Chart
     digest: b39e075eae2fba2b0273ac890710169993e6646187c107eb0e8016cfc415ba7a
@@ -9,4 +17,4 @@ entries:
     urls:
     - https://github.com/jvxtechnology/helm-charts/releases/download/promonitor-1.0.1/promonitor-1.0.1.tgz
     version: 1.0.1
-generated: "2024-01-03T19:00:34.901931075Z"
+generated: "2024-01-03T19:27:41.907072512Z"
