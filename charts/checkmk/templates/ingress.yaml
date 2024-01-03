@@ -1,5 +1,5 @@
 {{- if .Values.ingress.enabled -}}
-{{- $serviceName := include "check-mk.name" . -}}
+{{- $serviceName := printf "%s-%s-checkmk" .Release.Name .Chart.Name -}}
 {{- $servicePort := .Values.service.checkmk.externalPort -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
