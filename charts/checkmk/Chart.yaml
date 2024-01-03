@@ -1,4 +1,4 @@
 apiVersion: v2
-name: ProMonitor
+name: promonitor
 description: JVX ProMonitor Helm Chart
 version: 1.0.0

@@ -1,6 +1,6 @@
 {{- if .Values.ingress.enabled -}}
 {{- $serviceName := include "check-mk.name" . -}}
-{{- $servicePort := .Values.service.externalPort -}}
+{{- $servicePort := .Values.service.checkmk.externalPort -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -21,7 +21,7 @@ spec:
       http:
         paths:
           - path: /
-            pathType: ImplementationSpecific
+            pathType: Prefix
             backend:
               service:
                 name: {{ $serviceName }}

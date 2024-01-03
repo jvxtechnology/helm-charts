@@ -10,12 +10,12 @@ image:
     v2.3.0-2023.12.14@sha256:3770b2a8ee3ed7a9edd7f239782cbc754708f43dcb58cba423f9afdb5550286a
   pullPolicy: IfNotPresent
 service:
-  check-mk:
+  checkmk:
     type: NodePort
     enabled: true
     externalPort: 80
     internalPort: 5000
-  agent-receiver:
+  agentreceiver:
     type: NodePort
     enabled: true
     externalPort: 8000
@@ -26,11 +26,10 @@ service:
     externalPort: 6557
     internalPort: 6557
 ingress:
-  # Used to create Ingress record
   hosts:
-    - rc01.jvx.jvxtechnology.com
-    - monitor.jvxcustomer.com
-  enabled: false
+    - promonitor.customer.jvxtechnology.com
+    - promonitor.customerdomain.com
+  enabled: true
   annotations:
     spec.ingressClassName: nginx
   tls:
