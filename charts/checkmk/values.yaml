@@ -13,7 +13,7 @@ ingress:
   hosts:
     - rc01.jvx.jvxtechnology.com
     - monitor.jvxcustomer.com
-  enabled: true
+  enabled: false
   providerTlsHostname: rc01.jvx.jvxtechnology.com
   customerTlsHostname: monitor.jvxcustomer.com
   annotations:
@@ -39,18 +39,6 @@ persistence:
     storageClass: ""
     accessMode: ReadWriteOnce
     size: 1Gi
-  notifications:
-    enabled: true
-    mountPath: /omd/sites/randa/local/share/check_mk/notifications
-    storageClass: ""
-    accessMode: ReadWriteOnce
-    size: 2Gi
-  notificationsExt:
-    enabled: true
-    mountPath: /omd/sites/randa/local/share/check_mk/notifications_ext
-    storageClass: ""
-    accessMode: ReadWriteOnce
-    size: 2Gi
 tmpfs:
   mountPath: /opt/omd/sites/cmk/tmp
   size: 500Mi
