@@ -22,11 +22,17 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         env:
           - name: TZ
-            value: "{{ .Values.timezone }}"
+            value: "{{ .Values.checkmk.timezone }}"
           - name: CMK_SITE_ID
-            value: "{{ .Values.siteName }}"
+            value: "{{ .Values.checkmk.siteName }}"
           - name: CMK_LIVESTATUS_TCP
             value: "on"
+          - name: CMK_MAIL_RELAYHOST
+            value: "{{ .Values.checkmk.mailRelayHost }}"
+          - name: CMK_SITE_USER
+            value: "{{ .Values.checkmk.siteUser }}"
+          - name: CMK_SITE_PASSWORD
+            value: "{{ .Values.checkmk.sitePassword }}"
         securityContext:
           allowPrivilegeEscalation: true
           capabilities:
@@ -41,15 +47,21 @@ spec:
         {{- end }}
         {{- end }}
         volumeMounts:
-          - name: sites
-            mountPath: /omd/sites
-          - name: temp-storage
-            mountPath: /opt/omd/sites/cmk/tmp
+        {{- range $key, $value := .Values.persistence }}
+        {{- if not $value.existingClaim }}
+        - name: {{ template "check-mk.fullname" $ }}-{{ $key }}
+          mountPath: {{ $value.mountPath }}
+        {{- end }}
+        {{- end }}
       volumes:
-        - name: sites
+      {{- range $key, $value := .Values.persistence }}
+      {{- if not $value.existingClaim }}
+        - name: {{ template "check-mk.fullname" $ }}-{{ $key }}
           persistentVolumeClaim:
-            claimName: sites-pvc
-        - name: temp-storage
+            claimName: {{ template "check-mk.fullname" $ }}-{{ $key }}
+      {{- end }}
+      {{- end }}
+        - name: {{ template "check-mk.fullname" $ }}-tmpfs
           emptyDir:
             medium: Memory
             sizeLimit: {{ .Values.tmpfs.size }}

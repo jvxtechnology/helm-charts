@@ -1,6 +1,9 @@
-siteName: jvx-site
-mailRelayHost: ""
-timezone: America/Chicago
+checkmk:
+  siteName: customersite
+  siteUser: cmkadmin
+  sitePassword: secret
+  mailRelayHost: ""
+  timezone: America/Chicago
 image:
   repository: checkmk/check-mk-raw
   tag: >-
@@ -11,7 +14,7 @@ service:
     type: NodePort
     enabled: true
     externalPort: 8080
-    internalPort: 5000
+    internalPort: 5001
   agent-receiver:
     type: NodePort
     enabled: true
@@ -32,20 +35,23 @@ ingress:
     spec.ingressClassName: nginx
   tls:
     # Secrets must be manually created in the namespace.
-    # - secretName: chart-example-tls
-    #   hosts:
-    #     - chart-example.local
     - secretName: check-mk-tls
       hosts:
         - rc01.jvx.jvxtechnology.com
         - monitor.jvxcustomer.com
 persistence:
-  enabled: true
-  storageClass: ""
-  existingClaim: ""
-  mountPath: /omd/sites
-  accessMode: ReadWriteOnce
-  size: 100Gi
+  omd:
+    storageClass: ""
+    existingClaim: ""
+    mountPath: /omd/sites
+    accessMode: ReadWriteOnce
+    size: 100Gi
+  agent-local:
+    storageClass: ""
+    existingClaim: ""
+    mountPath: /usr/lib/check_mk_agent/local
+    accessMode: ReadWriteOnce
+    size: 100Mi
 tmpfs:
   size: 500Mi
 
