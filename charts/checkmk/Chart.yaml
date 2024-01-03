@@ -1,4 +1,12 @@
 apiVersion: v2
 name: promonitor
 description: JVX ProMonitor Helm Chart
-version: 1.0.2
+version: 1.0.3
+annotations:
+  category: "Application"
+  icon: "https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png"
+  keywords: "checkmk, prometheus, monitoring, jvx"
+  maintainers:
+    - name: "JVX"
+      email: "ops@jvxtechnology.com"
+  catalog.cattle.io/display-name: "JVX ProMonitor"
