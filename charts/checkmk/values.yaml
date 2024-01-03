@@ -36,8 +36,8 @@ ingress:
     # Secrets must be manually created in the namespace.
     - secretName: check-mk-tls
       hosts:
-        - rc01.jvx.jvxtechnology.com
-        - monitor.jvxcustomer.com
+        - promonitor.customer.jvxtechnology.com
+        - promonitor.customerdomain.com
 persistence:
   omd:
     storageClass: ""
