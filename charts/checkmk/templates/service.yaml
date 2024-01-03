@@ -11,8 +11,8 @@ metadata:
 spec:
   type: {{ $svc.type }}
   ports:
-    - port: {{ $svc.internalPort }}
-      targetPort: {{ $svc.externalPort }}
+    - port: {{ $svc.externalPort }}
+      targetPort: {{ $svc.internalPort }}
       protocol: TCP
       name: {{ $name }}
   selector:

@@ -13,7 +13,7 @@ service:
   check-mk:
     type: NodePort
     enabled: true
-    externalPort: 8080
+    externalPort: 80
     internalPort: 5000
   agent-receiver:
     type: NodePort
