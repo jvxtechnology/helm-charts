@@ -49,19 +49,19 @@ spec:
         volumeMounts:
         {{- range $key, $value := .Values.persistence }}
         {{- if not $value.existingClaim }}
-        - name: {{ template "check-mk.fullname" $ }}-{{ $key }}
+        - name: {{ template "check-mk.name" $ }}-{{ $key }}
           mountPath: {{ $value.mountPath }}
         {{- end }}
         {{- end }}
       volumes:
       {{- range $key, $value := .Values.persistence }}
       {{- if not $value.existingClaim }}
-        - name: {{ template "check-mk.fullname" $ }}-{{ $key }}
+        - name: {{ template "check-mk.name" $ }}-{{ $key }}
           persistentVolumeClaim:
-            claimName: {{ template "check-mk.fullname" $ }}-{{ $key }}
+            claimName: {{ template "check-mk.name" $ }}-{{ $key }}
       {{- end }}
       {{- end }}
-        - name: {{ template "check-mk.fullname" $ }}-tmpfs
+        - name: {{ template "check-mk.name" $ }}-tmpfs
           emptyDir:
             medium: Memory
             sizeLimit: {{ .Values.tmpfs.size }}

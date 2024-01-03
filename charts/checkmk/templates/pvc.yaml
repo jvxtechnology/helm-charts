@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ template "check-mk.fullname" $ }}-{{ $key }}
+  name: {{ template "check-mk.name" $ }}-{{ $key }}
 spec:
   accessModes:
     - {{ $value.accessMode }}
