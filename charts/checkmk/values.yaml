@@ -28,17 +28,12 @@ ingress:
         - rc01.jvx.jvxtechnology.com
         - monitor.jvxcustomer.com
 persistence:
-  sites:
-    enabled: true
-    mountPath: /omd/sites
-    accessMode: ReadWriteOnce
-    size: 999Gi
-  agentLocal:
-    enabled: true
-    mountPath: /usr/lib/check_mk_agent/local
-    storageClass: ""
-    accessMode: ReadWriteOnce
-    size: 1Gi
+  enabled: true
+  storageClass: ""
+  existingClaim: ""
+  mountPath: /omd/sites
+  accessMode: ReadWriteOnce
+  size: 100Gi
 tmpfs:
   mountPath: /opt/omd/sites/cmk/tmp
   size: 500Mi

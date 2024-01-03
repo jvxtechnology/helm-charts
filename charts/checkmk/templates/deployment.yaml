@@ -32,13 +32,7 @@ spec:
         volumeMounts:
           - name: sites
             mountPath: /omd/sites
-          - name: agent-local
-            mountPath: "{{ .Values.persistence.agentLocal.mountPath }}"
       volumes:
         - name: sites
           persistentVolumeClaim:
             claimName: sites-pvc
-        - name: agent-local
-          persistentVolumeClaim:
-            claimName: agent-local-pvc
-
