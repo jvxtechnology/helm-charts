@@ -29,9 +29,9 @@ spec:
             value: "on"
           - name: CMK_MAIL_RELAYHOST
             value: "{{ .Values.checkmk.mailRelayHost }}"
-          - name: CMK_SITE_USER
+          - name: CMK_USER
             value: "{{ .Values.checkmk.siteUser }}"
-          - name: CMK_SITE_PASSWORD
+          - name: CMK_PASSWORD
             value: "{{ .Values.checkmk.sitePassword }}"
         securityContext:
           allowPrivilegeEscalation: true
