@@ -1,0 +1,14 @@
+{{- if .Values.phpadmin.enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name:  {{ template "gdesk.fullname" . }}-phpadmin
+spec:
+  selector:
+    app:  {{ template "gdesk.name" . }}-phpadmin
+  type: ClusterIP
+  ports:
+  - name:  http
+    port:  8080
+    targetPort:  80
+{{- end }}

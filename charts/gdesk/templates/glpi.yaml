@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "gdesk.fullname" . }}
+  labels:
+    app: {{ template "gdesk.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      app: {{ template "gdesk.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "gdesk.name" . }}
+        version: {{ .Chart.AppVersion }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      initContainers:
+      - name: init-glpi
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["/bin/sh", "-c", "cp -R /var/www/html/* /tmp/"]
+        volumeMounts:
+        - name: {{ template "gdesk.name" . }}-glpi
+          mountPath: /tmp
+      containers:
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name:  {{ template "gdesk.name" . }}-glpi
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - name: {{ template "gdesk.name" . }}-glpi
+            mountPath: /var/www/html
+      volumes:
+      - name: {{ template "gdesk.name" . }}-glpi
+        persistentVolumeClaim:
+          claimName: {{ template "gdesk.name" . }}-glpi

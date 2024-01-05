@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "gdesk.name" . }}-mariadb
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "gdesk.name" . }}-mariadb
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ template "gdesk.name" . }}-mariadb
+    spec:
+      containers:
+      - image: mariadb:latest
+        name: {{ template "gdesk.name" . }}-mariadb
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "gdesk.name" . }}-mariadb
+              key: root_password
+              optional: false
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "gdesk.name" . }}-mariadb
+              key: username
+              optional: false
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "gdesk.name" . }}-mariadb
+              key: password
+              optional: false
+        - name: MYSQL_DATABASE
+          value: glpi
+        ports:
+        - containerPort: 3306
+          name: {{ template "gdesk.name" . }}-db
+        volumeMounts:
+        - name: {{ template "gdesk.name" . }}-mariadb
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: {{ template "gdesk.name" . }}-mariadb
+        persistentVolumeClaim:
+          claimName: {{ template "gdesk.name" . }}-mariadb

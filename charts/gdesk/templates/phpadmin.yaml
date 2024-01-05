@@ -1,0 +1,26 @@
+{{- if .Values.phpadmin.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "gdesk.name" . }}-phpadmin
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "gdesk.name" . }}-phpadmin
+  template:
+    metadata:
+      labels:
+        app: {{ template "gdesk.name" . }}-phpadmin
+    spec:
+      containers:
+      - image:  phpmyadmin:latest
+        name:  {{ template "gdesk.name" . }}-phpadmin
+        env:
+        - name: PMA_ARBITRARY
+          value: "1"
+        - name: PMA_HOST
+          value: mariadb-service
+        ports:
+        - containerPort: 80
+{{- end }}
+```
