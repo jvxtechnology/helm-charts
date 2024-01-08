@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: 10.0.11glpi+11.2.2mariadb
+appVersion: 10.0.11
 description: JVX G Desk Helm Chart
 name: gdesk
 type: application
-version: 0.1.5
+version: 0.1.6
 icon: "https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png"
 keywords:
   - glpi
