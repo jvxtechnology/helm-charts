@@ -25,19 +25,16 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       initContainers:
-      - name: init-glpi
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
-        command: ["/bin/sh", "-c", "cp -R /var/www/html/* /tmp/"]
-        volumeMounts:
-        - name: {{ template "gdesk.name" . }}-glpi
-          mountPath: /tmp
       - name: volume-permissions
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         command: ['sh', '-c', 'chown -R 33:33 /var/www/html']
         volumeMounts:
-        - name: {{ template "gdesk.name" . }}-glpi
-          mountPath: /var/www/html
+        - name: {{ template "gdesk.name" . }}-glpi-config
+          mountPath: /var/www/html/glpi/config
+        - name: {{ template "gdesk.name" . }}-glpi-files
+          mountPath: /var/www/html/glpi/files
+        - name: {{ template "gdesk.name" . }}-glpi-plugins
+          mountPath: /var/www/html/glpi/plugins
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
@@ -45,9 +42,21 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-          - name: {{ template "gdesk.name" . }}-glpi
-            mountPath: /var/www/html
+          - name: {{ template "gdesk.name" . }}-glpi-config
+            mountPath: /var/www/html/glpi/config
+          - name: {{ template "gdesk.name" . }}-glpi-files
+            mountPath: /var/www/html/glpi/files
+          - name: {{ template "gdesk.name" . }}-glpi-plugins
+            mountPath: /var/www/html/glpi/plugins
       volumes:
-      - name: {{ template "gdesk.name" . }}-glpi
+      - name: {{ template "gdesk.name" . }}-glpi-config
         persistentVolumeClaim:
-          claimName: {{ template "gdesk.name" . }}-glpi
+          claimName: {{ template "gdesk.name" . }}-glpi-config
+      - name: {{ template "gdesk.name" . }}-glpi-files
+        persistentVolumeClaim:
+          claimName: {{ template "gdesk.name" . }}-glpi-files
+      - name: {{ template "gdesk.name" . }}-glpi-plugins
+        persistentVolumeClaim:
+          claimName: {{ template "gdesk.name" . }}-glpi-plugins
+
+
