@@ -6,6 +6,27 @@ entries:
       category: Application
     apiVersion: v2
     appVersion: 2.3.0
+    created: "2024-01-08T13:39:11.052587015Z"
+    description: JVX ProMonitor Helm Chart
+    digest: 1f2bda40a0d553cde62d2f28818e9453c296ec7dceaa42dbefa34730c67aa3ad
+    icon: https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png
+    keywords:
+    - checkmk
+    - monitoring
+    - prmoetheus
+    - jvx
+    maintainers:
+    - email: ops@jvxtechnology.com
+      name: JVX
+    name: promonitor
+    urls:
+    - https://github.com/jvxtechnology/helm-charts/releases/download/promonitor-1.0.6/promonitor-1.0.6.tgz
+    version: 1.0.6
+  - annotations:
+      catalog.cattle.io/display-name: JVX ProMonitor
+      category: Application
+    apiVersion: v2
+    appVersion: 2.3.0
     created: "2024-01-03T20:18:05.987046014Z"
     description: JVX ProMonitor Helm Chart
     digest: 694041b2f1da14c944c9fd1cb9e6a0de04e7b7c3065428d94a5284f4efe76829
@@ -59,4 +80,4 @@ entries:
     urls:
     - https://github.com/jvxtechnology/helm-charts/releases/download/promonitor-1.0.1/promonitor-1.0.1.tgz
     version: 1.0.1
-generated: "2024-01-03T20:18:05.987062865Z"
+generated: "2024-01-08T13:39:11.052632309Z"
