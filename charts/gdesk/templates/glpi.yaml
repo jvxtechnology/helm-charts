@@ -32,6 +32,12 @@ spec:
         volumeMounts:
         - name: {{ template "gdesk.name" . }}-glpi
           mountPath: /tmp
+      - name: volume-permissions
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        command: ['sh', '-c', 'chown -R 33:33 /var/www/html']
+        volumeMounts:
+        - name: {{ template "gdesk.name" . }}-glpi
+          mountPath: /var/www/html
       containers:
       - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
