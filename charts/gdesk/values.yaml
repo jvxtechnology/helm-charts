@@ -18,10 +18,6 @@ mariadb:
     repository: mariadb
     tag: 11.2.2
     pullPolicy: IfNotPresent
-  auth:
-    rootPassword: defaultrootpassword
-    username: defaultuser
-    password: defaultpassword
 
 ingress:
   enabled: true

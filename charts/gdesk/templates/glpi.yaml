@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "gdesk.fullname" . }}
+  name: {{ template "gdesk.fullname" . }}-glpi
   labels:
     app: {{ template "gdesk.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}

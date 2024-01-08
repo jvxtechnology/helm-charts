@@ -21,21 +21,21 @@ spec:
           valueFrom:
             secretKeyRef:
               name: {{ template "gdesk.name" . }}-mariadb
-              key: root_password
+              key: mariadb-root-password
               optional: false
         - name: MARIADB_USER
           valueFrom:
             secretKeyRef:
               name: {{ template "gdesk.name" . }}-mariadb
-              key: username
+              key: mariadb-glpi-user
               optional: false
-        - name: MYSQL_PASSWORD
+        - name: MARIADB_PASSWORD
           valueFrom:
             secretKeyRef:
               name: {{ template "gdesk.name" . }}-mariadb
-              key: password
+              key: mariadb-glpi-password
               optional: false
-        - name: MYSQL_DATABASE
+        - name: MARIADB_DATABASE
           value: glpi
         ports:
         - containerPort: 3306
