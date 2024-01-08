@@ -1,5 +1,9 @@
+### Overview ###
+
+JVX Helpdesk application based on GLPI.
+
+
 ### SETUP ###
-
-DB Select >
-
-    glpi
+Set mysql password during chart deployment. 
+Use to install GLPI.
+Select DB: glpi
