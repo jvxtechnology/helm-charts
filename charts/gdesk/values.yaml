@@ -1,0 +1,51 @@
+
+replicaCount: 1
+
+image:
+  repository: jvxtechnology/glpi
+  tag: v1.1
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+service:
+  type: ClusterIP
+  port: 80
+
+mariadb:
+  enabled: true
+  image:
+    repository: mariadb
+    tag: 11.2.2
+    pullPolicy: IfNotPresent
+  auth:
+    rootPassword: defaultrootpassword
+    username: defaultuser
+    password: defaultpassword
+
+ingress:
+  enabled: true
+  annotations: {}
+  hosts:
+    - host: host1.example.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: tls-secret-host1
+      hosts:
+        - host1.example.com
+    - secretName: tls-secret-host2
+      hosts:
+        - host2.example.com
+
+phpadmin:
+  enabled: false
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+

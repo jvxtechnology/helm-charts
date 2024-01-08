@@ -26,10 +26,9 @@ spec:
             pathType: {{ .pathType }}
             backend:
               service:
-                name: {{ include "gdesk.name" . }}
+                name: {{ include "gdesk.name" $ }}
                 port:
                   number: 80
           {{- end }}
     {{- end }}
 {{- end }}
-

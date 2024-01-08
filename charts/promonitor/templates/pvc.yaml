@@ -1,0 +1,16 @@
+{{- range $key, $value := .Values.persistence }}
+{{- if not $value.existingClaim }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ template "check-mk.name" $ }}-{{ $key }}
+spec:
+  accessModes:
+    - {{ $value.accessMode }}
+  resources:
+    requests:
+      storage: {{ $value.size }}
+  storageClassName: {{ $value.storageClass }}
+---
+{{- end }}
+{{- end }}
