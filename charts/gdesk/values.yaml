@@ -3,7 +3,7 @@ replicaCount: 1
 
 image:
   repository: jvxtechnology/glpi
-  tag: v1.1
+  tag: v1.2
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
