@@ -6,6 +6,28 @@ entries:
       category: Application
     apiVersion: v2
     appVersion: 10.0.11
+    created: "2024-01-11T20:59:26.118649568Z"
+    description: JVX G Desk Helm Chart
+    digest: 528f15f4faafc150bf9c88da08268ca043345f5c02a2f2b571312c96de0e367e
+    icon: https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png
+    keywords:
+    - glpi
+    - helpdesk
+    - ticketing
+    - jvx
+    maintainers:
+    - email: ops@jvxtechnology.com
+      name: JVX
+    name: gdesk
+    type: application
+    urls:
+    - https://github.com/jvxtechnology/helm-charts/releases/download/gdesk-1.0.2/gdesk-1.0.2.tgz
+    version: 1.0.2
+  - annotations:
+      catalog.cattle.io/display-name: JVX G Desk
+      category: Application
+    apiVersion: v2
+    appVersion: 10.0.11
     created: "2024-01-11T16:26:16.561724838Z"
     description: JVX G Desk Helm Chart
     digest: 44ef02dc0a9ac207d7f325353c2a2066bef4c209bb558d7abe6b8b4915c86d9a
@@ -278,4 +300,4 @@ entries:
     urls:
     - https://github.com/jvxtechnology/helm-charts/releases/download/promonitor-1.0.1/promonitor-1.0.1.tgz
     version: 1.0.1
-generated: "2024-01-11T16:26:16.561806401Z"
+generated: "2024-01-11T20:59:26.118697036Z"
