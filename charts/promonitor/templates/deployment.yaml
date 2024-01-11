@@ -27,7 +27,7 @@ spec:
             value: "{{ .Values.checkmk.siteName }}"
           - name: CMK_LIVESTATUS_TCP
             value: "on"
-          - name: CMK_MAIL_RELAYHOST
+          - name: MAIL_RELAY_HOST
             value: "{{ .Values.checkmk.mailRelayHost }}"
           - name: CMK_USER
             value: "{{ .Values.checkmk.siteUser }}"

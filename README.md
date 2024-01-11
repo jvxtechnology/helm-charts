@@ -18,3 +18,16 @@ To install the <chart-name> chart:
 To uninstall the chart:
 
     helm delete my-<chart-name>
+
+To obtain mysql passwords:
+  MariaDB root password:
+    kubectl -n <namespace> get secret <release name>-mariadb -o jsonpath="{.data.mariadb-root-password}" | base64 --decode; echo
+  
+  GLPI db username:
+    kubectl -n <namespace> get secret gdesk-mariadb -o jsonpath="{.data.mariadb-glpi-user}" | base64 --decode; echo
+  
+  GLPI db password:
+    kubectl -n <namespace> get secret gdesk-mariadb -o jsonpath="{.data.mariadb-glpi-password}" | base64 --decode; echo
+
+
+
