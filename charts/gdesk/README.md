@@ -3,8 +3,9 @@
 JVX Helpdesk application based on GLPI.
 
 
-### SETUP ###
-Use to install GLPI.
+### GLPI SETUP ###
+
+SQL_SERVER: <release-name>-mariadb
 
 ## Get auto-generated secrets
 ## Be sure to add a namespace, if needed
