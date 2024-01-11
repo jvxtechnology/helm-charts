@@ -37,6 +37,10 @@ spec:
               optional: false
         - name: MARIADB_DATABASE
           value: glpi
+        - name: MARIADB_INITDB_SKIP_TZINFO
+          value: "1"
+        - name: TZ
+          value: {{ .Values.timezone }}
         ports:
         - containerPort: 3306
           name: {{ template "gdesk.name" . }}-db

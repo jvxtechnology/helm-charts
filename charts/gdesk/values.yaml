@@ -1,6 +1,8 @@
 
 replicaCount: 1
 
+timezone: America/Chicago
+
 image:
   repository: jvxtechnology/glpi
   tag: v1.3
