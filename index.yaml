@@ -6,6 +6,28 @@ entries:
       category: Application
     apiVersion: v2
     appVersion: 10.0.11
+    created: "2024-01-11T12:49:55.095304438Z"
+    description: JVX G Desk Helm Chart
+    digest: 14bc63c2bfad2b5bc09b3d346b9d3ffd47e0c573d0046d02c14de58051ea17d2
+    icon: https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png
+    keywords:
+    - glpi
+    - helpdesk
+    - ticketing
+    - jvx
+    maintainers:
+    - email: ops@jvxtechnology.com
+      name: JVX
+    name: gdesk
+    type: application
+    urls:
+    - https://github.com/jvxtechnology/helm-charts/releases/download/gdesk-0.1.7/gdesk-0.1.7.tgz
+    version: 0.1.7
+  - annotations:
+      catalog.cattle.io/display-name: JVX G Desk
+      category: Application
+    apiVersion: v2
+    appVersion: 10.0.11
     created: "2024-01-08T20:06:16.035936086Z"
     description: JVX G Desk Helm Chart
     digest: 156bf75ee14b52b94c289c9c53cf2c06748ea4617cbf03d59ac20f4af45b5a81
@@ -139,6 +161,27 @@ entries:
       category: Application
     apiVersion: v2
     appVersion: 2.3.0
+    created: "2024-01-11T12:49:55.252387426Z"
+    description: JVX ProMonitor Helm Chart
+    digest: 0cf8e1f1b5d3ac14ee5eb1be2ea351b619cc0e4b786fd0500c27a92fab2748c9
+    icon: https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png
+    keywords:
+    - checkmk
+    - monitoring
+    - prmoetheus
+    - jvx
+    maintainers:
+    - email: ops@jvxtechnology.com
+      name: JVX
+    name: promonitor
+    urls:
+    - https://github.com/jvxtechnology/helm-charts/releases/download/promonitor-1.0.7/promonitor-1.0.7.tgz
+    version: 1.0.7
+  - annotations:
+      catalog.cattle.io/display-name: JVX ProMonitor
+      category: Application
+    apiVersion: v2
+    appVersion: 2.3.0
     created: "2024-01-08T13:39:11.052587015Z"
     description: JVX ProMonitor Helm Chart
     digest: 1f2bda40a0d553cde62d2f28818e9453c296ec7dceaa42dbefa34730c67aa3ad
@@ -213,4 +256,4 @@ entries:
     urls:
     - https://github.com/jvxtechnology/helm-charts/releases/download/promonitor-1.0.1/promonitor-1.0.1.tgz
     version: 1.0.1
-generated: "2024-01-08T20:06:16.035986841Z"
+generated: "2024-01-11T12:49:55.252448089Z"
