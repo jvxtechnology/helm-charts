@@ -38,7 +38,7 @@ spec:
         - name: MARIADB_DATABASE
           value: glpi
         - name: MARIADB_INITDB_SKIP_TZINFO
-          value: "1"
+          value: "0"
         - name: TZ
           value: {{ .Values.timezone }}
         ports:
