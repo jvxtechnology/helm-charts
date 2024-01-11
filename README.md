@@ -30,4 +30,6 @@ To obtain mysql passwords:
     kubectl -n <namespace> get secret gdesk-mariadb -o jsonpath="{.data.mariadb-glpi-password}" | base64 --decode; echo
 
 
+## Development
 
+  This chart uses a github action to auto-deploy new chart versions. To cause a new version to be published, increase the chart version in Chart.yaml, commit, and push. It can take a few minutes for this process to complete. You can check progress by browsing to this repo on github.com and consulting the 'Actions' pane.
