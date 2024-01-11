@@ -32,3 +32,6 @@ mariadb -u root -p mysql -e 'FLUSH PRIVILEGES;'
 
 # In the GLPI container
 php bin/console database:enable_timezones
+
+### Warning: Kubernetes secrets currently get overriden on every upgrade. This doesn't actually impact service but
+### makes maintenance a challenge. Needs to be fixed.
