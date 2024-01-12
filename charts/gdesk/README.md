@@ -27,6 +27,7 @@ Default login is glpi/glpi
 **Currently, you must enable timezones by running the following commands:
 # In the mariadb container (root password required)
 mariadb-tzinfo-to-sql /usr/share/zoneinfo | mariadb -u root -p mysql
+# The following two lines are only needed if install GLPI before running the above command.
 mariadb -u root -p mysql -e 'GRANT SELECT ON `mysql`.`time_zone_name` TO 'fN2ssIdN';'
 mariadb -u root -p mysql -e 'FLUSH PRIVILEGES;'
 
