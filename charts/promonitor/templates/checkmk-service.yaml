@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "check-mk.fullname" $ }}-{{ $name }}
+  name: {{ template "check-mk.name" $ }}-checkmk-{{ $name }}
   labels:
     app: {{ template "check-mk.name" $ }}
     chart: {{ $.Chart.Name }}-{{ $.Chart.Version | replace "+" "_" }}
