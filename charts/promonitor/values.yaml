@@ -11,17 +11,17 @@ image:
   pullPolicy: IfNotPresent
 service:
   checkmk:
-    type: NodePort
+    type: ClusterIP
     enabled: true
     externalPort: 80
     internalPort: 5000
   agentreceiver:
-    type: NodePort
+    type: ClusterIP
     enabled: true
     externalPort: 8000
     internalPort: 8000
   livestatus:
-    type: NodePort
+    type: ClusterIP
     enabled: true
     externalPort: 6557
     internalPort: 6557
