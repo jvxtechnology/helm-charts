@@ -1,0 +1,33 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "{{ template "gdesk.name" . }}-mariadb-tz-init"
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "5"
+    "helm.sh/hook-delete-policy": "hook-succeeded,hook-failed"
+spec:
+  template:
+    spec:
+      containers:
+      - name: mariadb-tz-init
+        image: {{ .Values.mariadb.image.repository }}:{{ .Values.mariadb.image.tag }}
+        command: ["/bin/bash", "-c"]
+        args:
+          - >
+            echo "Waiting for MariaDB to be ready...";
+            while ! nc -z mariadb-service 3306; do
+              echo "Waiting for MariaDB...";
+              sleep 5;
+            done;
+            echo "MariaDB is up and running!";
+            echo "Running mariadb-tzinfo-to-sql...";
+            mariadb-tzinfo-to-sql /usr/share/zoneinfo | mariadb -h mariadb-service -h {{ template "gdesk.name" . }}-mariadb -u root -p$MYSQL_ROOT_PASSWORD mysql
+        env:
+        - name: MARIADB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ template "gdesk.name" . }}-mariadb
+              key: mariadb-root-password
+              optional: false
+      restartPolicy: Never
