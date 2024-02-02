@@ -228,6 +228,47 @@ entries:
     urls:
     - https://github.com/jvxtechnology/helm-charts/releases/download/netbox-5.0.0/netbox-5.0.0.tgz
     version: 5.0.0
+  odoo:
+  - annotations:
+      category: CRM
+      images: |
+        - name: odoo
+          image: docker.io/bitnami/odoo:17.0.20240105-debian-11-r0
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 17.0.20240105
+    created: "2024-02-02T13:32:12.122404382Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 13.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Odoo is an open source ERP and CRM platform, formerly known as OpenERP,
+      that can connect a wide variety of business operations such as sales, supply
+      chain, finance, and project management.
+    digest: 9083f0756c437660bef60e889de6c3c304b6ea6a9f4fb920604b949da88efe43
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/odoo/img/odoo-stack-220x234.png
+    keywords:
+    - odoo
+    - crm
+    - www
+    - http
+    - web
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: odoo
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/odoo
+    urls:
+    - https://github.com/jvxtechnology/helm-charts/releases/download/odoo-25.3.1/odoo-25.3.1.tgz
+    version: 25.3.1
   promonitor:
   - annotations:
       catalog.cattle.io/display-name: JVX ProMonitor
@@ -350,4 +391,4 @@ entries:
     urls:
     - https://github.com/jvxtechnology/helm-charts/releases/download/promonitor-1.0.1/promonitor-1.0.1.tgz
     version: 1.0.1
-generated: "2024-01-22T18:47:44.148654405Z"
+generated: "2024-02-02T13:32:12.122442243Z"
