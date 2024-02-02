@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ printf "%s-odoo-modules" (include "common.names.fullname" .) | trunc 63 | trimSuffix "-" }}
+data:
+  repos.txt: |
+    {{- range .Values.odooModuleRepos }}
+    {{ . }}
+    {{- end }}
