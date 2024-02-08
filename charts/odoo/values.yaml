@@ -129,9 +129,7 @@ loadDemoData: false
 customPostInitScripts:
   copy-addons.sh: |
     #!/bin/bash
-    for addon in /tmp/addons/*; do
-      cp -r ${addon}/* /bitnami/odoo/addons
-    done
+    cp -rf /tmp/addons/* /bitnami/odoo/addons
 ## SMTP mail delivery configuration
 ## ref: https://github.com/bitnami/containers/tree/main/bitnami/odoo/#smtp-configuration
 ## @param smtpHost SMTP server host
@@ -408,15 +406,15 @@ sidecars: []
 initContainers: []
 
 odooModuleRepos:
-  - 'github.com/jvxtechnology/jvx-desk-debranded-email-templates.git'
-  - 'github.com/jvxtechnology/jvx-desk-hide-activities.git'
-  - 'github.com/jvxtechnology/jvx-desk-hide-app-switcher.git'
-  - 'github.com/jvxtechnology/jvx-desk-hide-discussions.git'
-  - 'github.com/jvxtechnology/jvx-desk-ui-base-enhancements.git'
-  - 'github.com/jvxtechnology/jvx-desk-ui-skin-beige-alerts.git'
-  - 'github.com/jvxtechnology/jvx-desk-survey-replacement.git'
-  - 'github.com/jvxtechnology/softhealer-odoo-backend-debranding.git'
-  - 'github.com/jvxtechnology/softhealer-odoo-base-debranding.git'
+  - 'github.com/jvxtechnology/jvx-desk-debranded-email-templates'
+  - 'github.com/jvxtechnology/jvx-desk-hide-activities'
+  - 'github.com/jvxtechnology/jvx-desk-hide-app-switcher'
+  - 'github.com/jvxtechnology/jvx-desk-hide-discussions'
+  - 'github.com/jvxtechnology/jvx-desk-ui-base-enhancements'
+  - 'github.com/jvxtechnology/jvx-desk-ui-skin-beige-alerts'
+  - 'github.com/jvxtechnology/jvx-desk-survey-replacement'
+  - 'github.com/jvxtechnology/softhealer-odoo-backend-debranding'
+  - 'github.com/jvxtechnology/softhealer-odoo-base-debranding'
 
 githubSecret: github
 
