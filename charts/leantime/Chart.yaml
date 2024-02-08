@@ -1,0 +1,24 @@
+apiVersion: v2
+appVersion: 3.0.3
+description: Lean project management system for innovators
+name: leantime
+type: application
+version: 0.0.1
+icon: "https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png"
+keywords:
+  - project management
+  - task management
+  - agile
+  - kanban
+  - lean
+  - scrum
+  - jvx
+home: https://leantime.io/
+sources:
+  - https://github.com/Leantime/leantime
+maintainers:
+  - name: "JVX"
+    email: "ops@jvxtechnology.com"
+annotations:
+  category: "Application"
+  catalog.cattle.io/display-name: "JVX Leantime"
