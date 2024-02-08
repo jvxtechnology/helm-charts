@@ -205,6 +205,34 @@ entries:
       category: Application
     apiVersion: v2
     appVersion: 3.0.3
+    created: "2024-02-08T17:42:50.393324139Z"
+    description: Lean project management system for innovators
+    digest: f03c241a726008ee7fcf7c497b3eb677a9118b97a96f5ced19d4220f78c506c4
+    home: https://leantime.io/
+    icon: https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png
+    keywords:
+    - project management
+    - task management
+    - agile
+    - kanban
+    - lean
+    - scrum
+    - jvx
+    maintainers:
+    - email: ops@jvxtechnology.com
+      name: JVX
+    name: leantime
+    sources:
+    - https://github.com/Leantime/leantime
+    type: application
+    urls:
+    - https://github.com/jvxtechnology/helm-charts/releases/download/leantime-0.0.4/leantime-0.0.4.tgz
+    version: 0.0.4
+  - annotations:
+      catalog.cattle.io/display-name: JVX Leantime
+      category: Application
+    apiVersion: v2
+    appVersion: 3.0.3
     created: "2024-02-08T15:56:56.361713001Z"
     description: Lean project management system for innovators
     digest: d392fc196fe281fbbddc9a333697c6228318eb814f19708cca7ba5f48bc45c8f
@@ -476,4 +504,4 @@ entries:
     urls:
     - https://github.com/jvxtechnology/helm-charts/releases/download/promonitor-1.0.1/promonitor-1.0.1.tgz
     version: 1.0.1
-generated: "2024-02-08T15:56:56.361772781Z"
+generated: "2024-02-08T17:42:50.393412904Z"
