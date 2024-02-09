@@ -1,0 +1,40 @@
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: APACHE-2.0
+
+annotations:
+  category: Misc
+  licenses: Apache-2.0
+  images: |
+    - name: odoo
+      image: docker.io/bitnami/odoo:17.0.20240105-debian-11-r0
+  annotations:
+    category: "Application"
+    catalog.cattle.io/display-name: "JVX SafeInquire"
+apiVersion: v2
+appVersion: 17.0.20240105
+dependencies:
+- condition: postgresql.enabled
+  name: postgresql
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 13.x.x
+- name: common
+  repository: oci://registry-1.docker.io/bitnamicharts
+  tags:
+  - bitnami-common
+  version: 2.x.x
+description: SafeInquire Customer Inquiry Application
+home: https://jvxtechnology.com
+icon: "https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png"
+keywords:
+- safeinquire
+- jvx
+maintainers:
+  - name: "JVX"
+    email: "ops@jvxtechnology.com"
+name: safeinquire
+source:
+- https://github.com/bitnami/charts/tree/main/bitnami/odoo
+version: 25.3.1
+annotations:
+  category: "Application"
+  catalog.cattle.io/display-name: "JVX G Desk"
