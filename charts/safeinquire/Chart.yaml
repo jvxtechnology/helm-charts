@@ -37,4 +37,4 @@ source:
 version: 25.3.1
 annotations:
   category: "Application"
-  catalog.cattle.io/display-name: "JVX G Desk"
+  catalog.cattle.io/display-name: "JVX SafeInquire"
