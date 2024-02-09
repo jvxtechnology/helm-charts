@@ -504,4 +504,35 @@ entries:
     urls:
     - https://github.com/jvxtechnology/helm-charts/releases/download/promonitor-1.0.1/promonitor-1.0.1.tgz
     version: 1.0.1
-generated: "2024-02-08T17:42:50.393412904Z"
+  safeinquire:
+  - annotations:
+      catalog.cattle.io/display-name: JVX G Desk
+      category: Application
+    apiVersion: v2
+    appVersion: 17.0.20240105
+    created: "2024-02-09T14:07:21.893141808Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 13.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: SafeInquire Customer Inquiry Application
+    digest: 2082773d35334538a06de0aa645daffbf93b709114e455ed58b44870dc2920ed
+    home: https://jvxtechnology.com
+    icon: https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png
+    keywords:
+    - safeinquire
+    - jvx
+    maintainers:
+    - email: ops@jvxtechnology.com
+      name: JVX
+    name: safeinquire
+    urls:
+    - https://github.com/jvxtechnology/helm-charts/releases/download/safeinquire-25.3.1/safeinquire-25.3.1.tgz
+    version: 25.3.1
+generated: "2024-02-09T14:07:21.893168457Z"
