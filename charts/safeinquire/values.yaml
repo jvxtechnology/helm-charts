@@ -417,7 +417,7 @@ odooModuleRepos:
   - 'github.com/jvxtechnology/softhealer-odoo-base-debranding'
 
 githubExistingSecretName: ''
-githubToken: ***REMOVED***
+githubToken: ''
 
 ## @section Traffic Exposure Parameters
 ##
