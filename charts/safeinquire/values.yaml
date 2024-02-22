@@ -409,14 +409,15 @@ odooModuleRepos:
   - 'github.com/jvxtechnology/jvx-desk-debranded-email-templates'
   - 'github.com/jvxtechnology/jvx-desk-hide-activities'
   - 'github.com/jvxtechnology/jvx-desk-hide-app-switcher'
-  - 'github.com/jvxtechnology/jvx-desk-hide-discussions'
+  - 'github.com/jvxtechnology/jvx-desk-hide-discuss'
   - 'github.com/jvxtechnology/jvx-desk-ui-base-enhancements'
-  - 'github.com/jvxtechnology/jvx-desk-ui-skin-beige-alerts'
-  - 'github.com/jvxtechnology/jvx-desk-survey-replacement'
+  - 'github.com/jvxtechnology/jvx-desk-ui-skin-beige-alert'
+  - 'github.com/jvxtechnology/safeinquire'
   - 'github.com/jvxtechnology/softhealer-odoo-backend-debranding'
   - 'github.com/jvxtechnology/softhealer-odoo-base-debranding'
 
-githubSecret: jvx-github-readonly
+githubExistingSecretName: ''
+githubToken: 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
 
 ## @section Traffic Exposure Parameters
 ##
