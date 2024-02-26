@@ -1,7 +1,7 @@
 apiVersion: v2
 name: promonitor
 description: JVX ProMonitor Helm Chart
-version: 1.0.8
+version: 1.0.9
 icon: "https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png"
 keywords: 
   - checkmk
@@ -11,7 +11,7 @@ keywords:
 maintainers:
   - name: "JVX"
     email: "ops@jvxtechnology.com"
-appVersion: "2.3.0"
+appVersion: v2.3.0-2023.12.14@sha256:3770b2a8ee3ed7a9edd7f239782cbc754708f43dcb58cba423f9afdb5550286a
 annotations:
   category: "Application"
   catalog.cattle.io/display-name: "JVX ProMonitor"

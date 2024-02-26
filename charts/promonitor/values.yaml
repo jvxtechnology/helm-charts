@@ -1,7 +1,7 @@
 fullnameOverride: ''
 nameOverride: ''
 checkmk:
-  siteName: ''
+  siteName: changeme
   bootstrapPassword: ''
   mailRelayHost: ''
   timezone: America/Chicago
