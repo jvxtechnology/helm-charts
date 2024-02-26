@@ -1,8 +1,9 @@
+fullnameOverride: ''
+nameOverride: ''
 checkmk:
-  siteName: customersite
-  siteUser: cmkadmin
-  sitePassword: secret
-  mailRelayHost: ""
+  siteName: ''
+  bootstrapPassword: ''
+  mailRelayHost: ''
   timezone: America/Chicago
 image:
   repository: checkmk/check-mk-raw
@@ -27,17 +28,17 @@ service:
     internalPort: 6557
 ingress:
   hosts:
-    - promonitor.customer.jvxtechnology.com
-    - promonitor.customerdomain.com
+    - monitor.customer-subdomain.jvxtechnology.com
+    - monitor.customerdomain.com
   enabled: true
   annotations:
     spec.ingressClassName: nginx
   tls:
     # Secrets must be manually created in the namespace.
-    - secretName: check-mk-tls
+    - secretName: monitor-check-mk-tls
       hosts:
-        - promonitor.customer.jvxtechnology.com
-        - promonitor.customerdomain.com
+        - monitor.customer-subdomain.jvxtechnology.com
+        - monitor.customerdomain.com
 persistence:
   omd:
     storageClass: ""

@@ -1,5 +1,4 @@
 {{- if .Values.ingress.enabled -}}
-{{- $serviceName := printf "%s-%s-checkmk" .Release.Name .Chart.Name -}}
 {{- $servicePort := .Values.service.checkmk.externalPort -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -24,12 +23,12 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ $serviceName }}
+                name: {{ template "check-mk.fullname" $ }}-checkmk
                 port:
                   number: {{ $servicePort }}
     {{- end -}}
   {{- if .Values.ingress.tls }}
-  tls:
+  tls::
     {{- range .Values.ingress.tls }}
     - hosts:
         {{- range .hosts }}
