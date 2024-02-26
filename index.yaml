@@ -142,6 +142,27 @@ entries:
       catalog.cattle.io/display-name: JVX ProMonitor
       category: Application
     apiVersion: v2
+    appVersion: v2.3.0-2023.12.14@sha256:3770b2a8ee3ed7a9edd7f239782cbc754708f43dcb58cba423f9afdb5550286a
+    created: "2024-02-26T15:33:43.630407882Z"
+    description: JVX ProMonitor Helm Chart
+    digest: 533aa8bb04d9f5fbe0a5e8a936b5e603086eadcb77a3e25ba12dbce1f2374d01
+    icon: https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png
+    keywords:
+    - checkmk
+    - monitoring
+    - prmoetheus
+    - jvx
+    maintainers:
+    - email: ops@jvxtechnology.com
+      name: JVX
+    name: promonitor
+    urls:
+    - https://github.com/jvxtechnology/helm-charts/releases/download/promonitor-1.0.9/promonitor-1.0.9.tgz
+    version: 1.0.9
+  - annotations:
+      catalog.cattle.io/display-name: JVX ProMonitor
+      category: Application
+    apiVersion: v2
     appVersion: 2.3.0
     created: "2024-01-20T13:14:12.93547109Z"
     description: JVX ProMonitor Helm Chart
@@ -220,4 +241,4 @@ entries:
     urls:
     - https://github.com/jvxtechnology/helm-charts/releases/download/safeinquire-0.0.1/safeinquire-0.0.1.tgz
     version: 0.0.1
-generated: "2024-02-22T20:45:37.807912936Z"
+generated: "2024-02-26T15:33:43.760151057Z"
