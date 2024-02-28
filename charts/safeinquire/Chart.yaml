@@ -34,7 +34,7 @@ maintainers:
 name: safeinquire
 source:
 - https://github.com/bitnami/charts/tree/main/bitnami/odoo
-version: 1.0.0
+version: 1.0.1
 annotations:
   category: "Application"
   catalog.cattle.io/display-name: "JVX SafeInquire"
