@@ -11,7 +11,7 @@ annotations:
     category: "Application"
     catalog.cattle.io/display-name: "JVX SafeInquire"
 apiVersion: v2
-appVersion: 17.0.20240105
+appVersion: 16
 dependencies:
 - condition: postgresql.enabled
   name: postgresql

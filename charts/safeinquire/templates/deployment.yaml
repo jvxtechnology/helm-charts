@@ -91,8 +91,19 @@ spec:
         - name: load-modules
           image: bitnami/git:latest
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
-          command: ['sh', '-c', 'for repo in $(cat /tmp/repos/repos.txt); do git clone  "https://$GITHUB_TOKEN@${repo}" /tmp/addons/$(basename ${repo}); done']
-          # command: ['sh', '-c', 'for repo in $(cat /tmp/addons/repos.txt); do git clone "https://$GITHUB_TOKEN@${repo}"; done']
+          command: ['sh', '-c']
+          args: 
+          - |
+            for repo in $(cat /tmp/repos/repos.txt); do 
+                repo_dir=/tmp/addons/$(basename ${repo})
+                if [ ! -d "$repo_dir" ]; then
+                    echo "Cloning $repo_dir"
+                    git clone  "https://$GITHUB_TOKEN@${repo}" $repo_dir
+                else
+                    echo "Directory $repo_dir already exists, skipping..."
+                fi
+            done
+
           env:
             - name: GITHUB_TOKEN
               valueFrom:
