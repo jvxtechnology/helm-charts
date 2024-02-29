@@ -100,7 +100,7 @@ spec:
                     echo "Cloning $repo_dir"
                     git clone  "https://$GITHUB_TOKEN@${repo}" $repo_dir
                 else
-                    echo "Directory $repo_dir already exists, skipping..."
+                    cd $repo_dir && git pull
                 fi
             done
 
