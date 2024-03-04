@@ -99,8 +99,9 @@ spec:
                 if [ ! -d "$repo_dir" ]; then
                     echo "Cloning $repo_dir"
                     git clone  "https://$GITHUB_TOKEN@${repo}" $repo_dir
-                else
-                    cd $repo_dir && git pull
+                ### Maybe not a good idea
+                ##else
+                ##    cd $repo_dir && git pull
                 fi
             done
 
