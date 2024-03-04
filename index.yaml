@@ -207,6 +207,36 @@ entries:
       category: Application
     apiVersion: v2
     appVersion: "16"
+    created: "2024-03-04T20:59:32.60664101Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 13.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: SafeInquire Customer Inquiry Application
+    digest: 01b1f378ff681dd23a8be25c996c813a5354d297236ceb26d06e1c676999eea9
+    home: https://jvxtechnology.com
+    icon: https://raw.githubusercontent.com/jvxtechnology/helm-charts/main/charts/checkmk/promonitor.png
+    keywords:
+    - safeinquire
+    - jvx
+    maintainers:
+    - email: ops@jvxtechnology.com
+      name: JVX
+    name: safeinquire
+    urls:
+    - https://github.com/jvxtechnology/helm-charts/releases/download/safeinquire-1.0.3/safeinquire-1.0.3.tgz
+    version: 1.0.3
+  - annotations:
+      catalog.cattle.io/display-name: JVX SafeInquire
+      category: Application
+    apiVersion: v2
+    appVersion: "16"
     created: "2024-02-29T23:54:52.569132405Z"
     dependencies:
     - condition: postgresql.enabled
@@ -322,4 +352,4 @@ entries:
     urls:
     - https://github.com/jvxtechnology/helm-charts/releases/download/safeinquire-0.0.1/safeinquire-0.0.1.tgz
     version: 0.0.1
-generated: "2024-02-29T23:54:52.56915122Z"
+generated: "2024-03-04T20:59:32.606664084Z"
