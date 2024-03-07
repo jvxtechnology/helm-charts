@@ -13,6 +13,7 @@ metadata:
     {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
+  ingressClassName: {{ .Values.ingress.ingressClass }}
   rules:
     {{- range $serviceName, $service := .Values.service }}
     {{- if $service.enabled }}

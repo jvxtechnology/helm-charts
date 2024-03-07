@@ -31,8 +31,8 @@ ingress:
     - monitor.customer-subdomain.jvxtechnology.com
     - monitor.customerdomain.com
   enabled: true
-  annotations:
-    spec.ingressClassName: nginx
+  ingressClass: nginx
+  annotations: []
   tls:
     # Secrets must be manually created in the namespace.
     - secretName: monitor-check-mk-tls
