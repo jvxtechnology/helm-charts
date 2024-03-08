@@ -3,7 +3,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ template "check-mk.name" $ }}-{{ $key }}
+  name: {{ template "check-mk.fullname" $ }}-{{ $key }}
   annotations:
     "helm.sh/resource-policy": "keep"
 spec:
