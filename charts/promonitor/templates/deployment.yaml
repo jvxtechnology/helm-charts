@@ -56,7 +56,7 @@ spec:
       {{- if not $value.existingClaim }}
         - name: {{ template "check-mk.name" $ }}-{{ $key }}
           persistentVolumeClaim:
-            claimName: {{ template "check-mk.name" $ }}-{{ $key }}
+            claimName: {{ template "check-mk.fullname" $ }}-{{ $key }}
       {{- end }}
       {{- end }}
         - name: {{ template "check-mk.name" $ }}-tmpfs
