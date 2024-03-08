@@ -20,7 +20,7 @@ spec:
       http:
         paths:
           {{- range $name, $svc := $.Values.service }}
-          {{- if $svc.enabled }}
+          {{- if and $svc.enabled (eq (toString $svc.externalPort) "80") }}
           - path: /
             pathType: Prefix
             backend:
