@@ -15,21 +15,21 @@ metadata:
 spec:
   ingressClassName: {{ .Values.ingress.ingressClass }}
   rules:
-    {{- range $serviceName, $service := .Values.service }}
-    {{- if $service.enabled }}
-    {{- range $host := $.Values.ingress.hosts }}
-    - host: {{ $host }}
+    {{- range .Values.ingress.hosts }}
+    - host: {{ . }}
       http:
         paths:
+          {{- range $name, $svc := $.Values.service }}
+          {{- if $svc.enabled }}
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{ include "check-mk.fullname" $ }}-{{ $serviceName }}
+                name: {{ include "check-mk.fullname" $ }}-{{ $name }}
                 port:
-                  number: {{ $service.externalPort }}
-    {{- end }}
-    {{- end }}
+                  number: {{ $svc.externalPort }}
+          {{- end }}
+          {{- end }}
     {{- end }}
   {{- if $.Values.ingress.tls }}
   tls:
